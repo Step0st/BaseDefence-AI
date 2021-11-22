@@ -11,6 +11,7 @@ namespace Search
         [SerializeField] private LevelMap _levelMap;
         [SerializeField] private Transform _player;
         [SerializeField] private GameObject _base;
+        [SerializeField] private GameObject _cylinder;
         [SerializeField] private float _fireDistance;
 
         //private int[,] _map;
@@ -24,16 +25,12 @@ namespace Search
         {
             
             var alivePositions = _zombieMap.AlivePositions();
-            
-            _closestDistance = 100;
-            for (int i = 0; i < alivePositions.Count; i++)
+            var alivePaths = _zombieMap.AlivePaths();
+
+            if (alivePaths.Count != 0)
             {
-                var distance = (_base.transform.position - alivePositions[i]).magnitude;
-                if (distance < _closestDistance)
-                {
-                    _closestDistance = distance;
-                    _closestTarget = i;
-                }
+               int minVal = alivePaths.Min();
+               _closestTarget = alivePaths.IndexOf(minVal);
             }
             
             Vector3 targetPosition = alivePositions.Count != 0 ? alivePositions[_closestTarget] : _base.transform.position;

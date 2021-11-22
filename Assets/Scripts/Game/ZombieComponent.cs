@@ -8,14 +8,6 @@ namespace Game
 
         [SerializeField] private GameObject _diedView;
         
-        /*
-        private Vector3 _initPosition;
-
-        private void Awake()
-        {
-            _initPosition = transform.position;
-        }
-        */
 
         private void OnEnable()
         {

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Game;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace Search
         private int[,] _terrainMap;
         private int _deltaX;
         private int _deltaZ;
+        public List<Vector2Int> path;
 
         public override (Vector3 moveDirection, Quaternion viewDirection, bool shoot) CurrentInput()
         {
@@ -21,7 +23,7 @@ namespace Search
             var from = ToInt(zombiePosition);
             var to = ToInt(targetPosition);
 
-            var path = AStarFromGoogle.FindPath(_terrainMap, @from, to);
+            path = AStarFromGoogle.FindPath(_terrainMap, @from, to);
             var nextPathPoint = path.Count >= 2 ? path[1] : to;
             nextPathPoint = new Vector2Int(nextPathPoint.x - _deltaX, nextPathPoint.y - _deltaZ);
             

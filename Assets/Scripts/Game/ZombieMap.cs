@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Search;
 using UnityEngine;
 
 namespace Game
@@ -19,6 +20,11 @@ namespace Game
         public List<Vector3> AlivePositions() => _zombieComponents
             .Where(z => z.IsAlive)
             .Select(z=>z.gameObject.transform.position)
+            .ToList();
+        
+        public List<int> AlivePaths() => _zombieComponents
+            .Where(z => z.IsAlive)
+            .Select(z=>z.gameObject.GetComponent<AStarBotZombie>().path.Count)
             .ToList();
     }
 }

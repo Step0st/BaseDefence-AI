@@ -73,15 +73,15 @@ namespace Search
             var result = new Collection<PathNode>();
  
             // Соседними точками являются соседние по стороне клетки.
-            Vector2Int[] neighbourPoints = new Vector2Int[8];
+            Vector2Int[] neighbourPoints = new Vector2Int[4];
             neighbourPoints[0] = new Vector2Int(pathNode.Position.x + 1, pathNode.Position.y);
             neighbourPoints[1] = new Vector2Int(pathNode.Position.x - 1, pathNode.Position.y);
             neighbourPoints[2] = new Vector2Int(pathNode.Position.x, pathNode.Position.y + 1);
             neighbourPoints[3] = new Vector2Int(pathNode.Position.x, pathNode.Position.y - 1);
-            neighbourPoints[4] = new Vector2Int(pathNode.Position.x + 1, pathNode.Position.y + 1);
-            neighbourPoints[5] = new Vector2Int(pathNode.Position.x - 1, pathNode.Position.y - 1);
-            neighbourPoints[6] = new Vector2Int(pathNode.Position.x - 1, pathNode.Position.y + 1);
-            neighbourPoints[7] = new Vector2Int(pathNode.Position.x + 1, pathNode.Position.y - 1);
+            //neighbourPoints[4] = new Vector2Int(pathNode.Position.x + 1, pathNode.Position.y + 1);
+            //neighbourPoints[5] = new Vector2Int(pathNode.Position.x - 1, pathNode.Position.y - 1);
+            //neighbourPoints[6] = new Vector2Int(pathNode.Position.x - 1, pathNode.Position.y + 1);
+            //neighbourPoints[7] = new Vector2Int(pathNode.Position.x + 1, pathNode.Position.y - 1);
  
             foreach (var point in neighbourPoints)
             {
