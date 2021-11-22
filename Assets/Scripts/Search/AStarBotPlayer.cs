@@ -11,14 +11,11 @@ namespace Search
         [SerializeField] private LevelMap _levelMap;
         [SerializeField] private Transform _player;
         [SerializeField] private GameObject _base;
-        [SerializeField] private GameObject _cylinder;
         [SerializeField] private float _fireDistance;
 
-        //private int[,] _map;
         private int[,] _terrainMap;
         private int _deltaX;
         private int _deltaZ;
-        private float _closestDistance;
         private int _closestTarget;
 
         public override (Vector3 moveDirection, Quaternion viewDirection, bool shoot) CurrentInput()

@@ -78,7 +78,6 @@ namespace Game
             TerrainMap.Add(pos);
         }
         
-
         public void CopyToSO(List<Vector3> MapToSave,List<Vector3> MapInEditor)
         {
             MapToSave.Clear();
